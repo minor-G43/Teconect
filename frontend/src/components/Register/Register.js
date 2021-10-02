@@ -1,10 +1,34 @@
 import React, { useState } from "react";
-import validation from "./validation";
+// import validation from './validation';
 import Avatar from "../../images/avatar.png";
 import { Link } from "react-router-dom";
 import './Register.css';
 
 const Register = () => {
+
+    const validation = (values) => {
+        let errors = {};
+        if (!values.fullname) {
+          errors.fullname = "Name is required.";
+        }
+        if (!values.email) {
+          errors.email = "Email is required.";
+        } else if (!/\S+@\S+\.\S+/.test(values.email)) {
+          errors.email = "Email is invalid";
+        }
+        if (!values.password) {
+          errors.password = "Password is required.";
+        } else if (values.password.length < 5) {
+          errors.password = "Password must be more than five characters.";
+        }
+      
+        if (!values.username) {
+          errors.username = "Username is required.";
+        }
+      
+        return errors;
+      };
+    
   const [values, setValues] = useState({
     fullname: "",
     email: "",
