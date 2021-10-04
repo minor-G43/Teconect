@@ -5,9 +5,18 @@
 .navbar-brand {
     color: white;
     font-weight: bold;
-    margin-left: 5rem;
+    margin-left: 5px;
     font-size: 30px;
     transition: all ease-in 1.2s;
+}
+
+.port-logo {
+    background: transparent;
+    vertical-align: middle;
+    border-style: none;
+    width: 57px;
+    height: 53px;
+    border-radius: 40px;
 }
 
 .navbar-brand:hover {

@@ -1,5 +1,5 @@
-.login {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../images/background.png') center/cover no-repeat fixed;
+.login, .register {
+    background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('../../images/background.png') center/cover no-repeat fixed;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,11 +20,15 @@
     100% {color: #FEB248;}
   }
   
-  .container {
-    background: linear-gradient(0.25turn, #F7483B, #3590F3, #33FF96, #FEB248);
+  .container, .container2 {
+    background: #3F0071;
     border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
-    width: 400px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    width: 550px;
+  }
+
+  .container2 {
+    margin-top: 125px;
   }
   
   .errorMsg {
@@ -44,7 +48,7 @@
   }
   
   .control label {
-    color: #390040;
+    color: #fff;
     font-weight: bold;
     display: block;
     margin-bottom: 5px;
@@ -65,21 +69,51 @@
   
   .control input:focus {
     outline: 0;
-    border-color: #390040;
+    border-color: #fff;
+  }
+
+  span {
+    font-weight: bold;
+    color: white;
+  }
+
+  .register-link {
+    color: yellow;
+    transition: all 1s linear;
+  }
+
+  .register-link:hover {
+    color: #fff;
   }
     
-  .button {
-      cursor: pointer;
-      text-align: center;
-      border-radius: 4px;
-      background-color: #390040;
-      font-weight: bold;
-      padding: 15px 131px;
-      color: #fff;
+  .button, .button2 {
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #fff;
+    font-weight: bold;
+    padding: 12px 108px;
+    color: #3F0071;
+    border-radius: 25px;
+    margin-left: 85px;
     }
   
     .button:hover {
-      color: #390040;
-      background: #fff;
-      transition: all 0.6s linear;
+      color: #3F0071;
+      background: yellow;
+      transition: all 1s linear;
+    }
+
+    @media screen and (max-width: 770px)  {
+      .container, .container2 {
+        width: 440px;
+      }
+
+      .button {
+        margin-left: 30px;
+      }
+
+      .button2 {
+        margin-left: 41px;
+      }
     }

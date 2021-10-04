@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faSearch, faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import {Link} from 'react-router-dom';
-
+import logo from '../../images/logo.png';
 import './Navbar.css';
 
 
@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div>
             <nav className="navbar navbar-expand-lg">
-            <Link className="navbar-brand" to="#">Teconect</Link>
+            <Link className="navbar-brand" to="#"><img src={logo} className='port-logo' alt="logo"/> Teconect</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -26,7 +26,7 @@ const Navbar = () => {
 
                 <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <Link className="nav-link" to="/login">Login</Link>
+                    <Link className="nav-link" to="/">Login</Link>
                 </li>
                 <li className="nav-item">
                     <Link className="nav-link" to="/register">Register</Link>

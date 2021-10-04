@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import { Redirect } from 'react-router';
+// import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 
@@ -34,7 +35,6 @@ class Login extends Component {
 
     if (this.validateForm()) {
         let details = {};
-        details["username"] = "";
         details["emailid"] = "";
         details["password"] = "";
         this.setState({details:details});
@@ -50,18 +50,6 @@ class Login extends Component {
     let errors = {};
     let validity = true;
 
-    if (!details["username"]) {
-      validity = false;
-      errors["username"] = "*Please enter your Username";
-    }
-
-    if (typeof details["username"] !== "undefined") {
-      if (!(details["username"].length > 5)) {
-        validity = false;
-        errors["username"] = "*Please enter more than 5 characters";
-      }
-    }
-
     if (!details["emailid"]) {
       validity = false;
       errors["emailid"] = "*Please enter your Email ID";
@@ -69,7 +57,7 @@ class Login extends Component {
 
     if (typeof details["emailid"] !== "undefined") {
 
-      var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+      let pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
       if (!pattern.test(details["emailid"])) {
         validity = false;
         errors["emailid"] = "*Please enter valid Email ID";
@@ -103,19 +91,9 @@ render() {
 
      <div className="container">
 
-        <form className="form" method="post" name="RegistrationForm" onSubmit= {this.submitForm}>
+        <form className="form" method="post" name="Login-Form" onSubmit= {this.submitForm}>
 
-            <h2>SignUp To Register</h2>
-            
-            <div className="control">
-                <label htmlFor = "username">Username</label>
-                <input type="text" 
-                name = "username" 
-                value={this.state.details.username} 
-                placeholder="Username" 
-                onChange={this.handleChange} />
-                <small className="errorMsg">{this.state.errors.username}</small>
-            </div>
+            <h2>Teconect Login</h2>
 
             <div className="control">
                 <label htmlFor = "email">Email</label>
@@ -137,9 +115,12 @@ render() {
                 <small className="errorMsg">{this.state.errors.password}</small>
             </div>
 
-            <input type="submit" className="button"  value="Register" />
+            <div className="control">
+              <span>Don't have an Account?  <Link to='/register' className="register-link">Register</Link></span>
+            </div>
+
+            <input type="submit" className="button"  value="Login" />
         </form>
-        {this.state.redirect ? <Redirect to="/register" /> : ''}
     </div>
   </div>
 
