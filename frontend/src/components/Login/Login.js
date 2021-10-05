@@ -37,9 +37,24 @@ class Login extends Component {
         let details = {};
         details["emailid"] = "";
         details["password"] = "";
-        this.setState({details:details});
-        alert("You have been logged in successfully!"); 
-        this.setState({redirect: true});
+        fetch("http://localhost:5000/api/auth/login" , {
+          method : "post", 
+          body :{
+            "email"  : details["emailid"],
+            "password" : details["password"]
+          }
+        }).then(res=>{
+          if(res.status === 200 || res.status  === 201){
+            this.setState({details:details});
+            alert("You have been logged in successfully!"); 
+            this.setState({redirect: true});
+          }
+          else{
+            alert(res.statusText);
+          }
+        }).catch( err =>{
+          alert(err);
+        }) 
       }
 
   }

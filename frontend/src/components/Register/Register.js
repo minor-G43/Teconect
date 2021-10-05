@@ -42,8 +42,32 @@ class Register extends Component {
         details["linkedin"] = "";
         details["github"] = "";
         details["techstack"] = "";
-        this.setState({details:details});
-        alert("You have been logged in successfully!"); 
+        details["tags"] = "";
+
+        fetch("http://localhost:5000/api/auth/register" , {
+          method : "post", 
+          body :{
+            "name" : details["name"],
+            "username" : details["username"],
+            "email"  : details["emailid"],
+            "password" : details["password"],
+            "github" : details["github"],
+            "techsatck" : details["techstack"],
+            "tags" : details["tags"]
+          }
+        }).then(res=>{
+          if(res.status === 200 || res.status  === 201){
+            this.setState({details:details});
+            alert("You have been logged in successfully!"); 
+          }
+          else{
+            alert(res.statusText);
+          }
+        }).catch( err =>{
+          alert(err);
+        })
+
+
       }
 
   }
@@ -255,6 +279,15 @@ render() {
                   <option value="Cyber Security" />
                 </datalist>
                 <small className="errorMsg">{this.state.errors.techstack}</small>
+            </div>
+            <div className="control">
+                <label htmlFor = "Tags">Prefered Technologies</label>
+                <textarea type="tags" 
+                name = "tags" 
+                value={this.state.details.tags} 
+                placeholder="Eg . JavaScript , ptyhon , Etc.." 
+                onChange={this.handleChange} />
+                <small className="errorMsg">{this.state.errors.tags}</small>
             </div>
 
             <div className="control">

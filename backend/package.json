@@ -1,12 +1,23 @@
 {
-  "name": "backend",
+  "name": "authentication-project",
   "version": "1.0.0",
-  "description": "This is the backend for connect app",
+  "description": "A project with full authentication boilerplate with reusable components",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
-  "author": "Somya Gupta",
-  "license": "ISC"
+  "author": "Abhir",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.4",
+    "nodemailer": "^6.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
 }
