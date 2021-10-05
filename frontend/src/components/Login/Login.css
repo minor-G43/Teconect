@@ -1,0 +1,119 @@
+.login, .register {
+    background: linear-gradient(rgba(255,255,255,0.05), rgba(255,255,255,0.05)), url('../../images/background.png') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  h2 {
+    text-align: center;
+    margin: 0 0 20px; 
+    animation: color-change 1s infinite;
+  }
+  
+  @keyframes color-change {
+    0% { color: #F7483B; }
+    50% { color: #0AEBFF; }
+    75% { color: #33FF96; }
+    100% {color: #FEB248;}
+  }
+  
+  .container, .container2 {
+    background: #3F0071;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+    width: 550px;
+  }
+
+  .container2 {
+    margin-top: 125px;
+  }
+  
+  .errorMsg {
+    color: #fff;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  
+  .form {
+    padding: 30px 40px;
+  }
+  
+  .control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+  }
+  
+  .control label {
+    color: #fff;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .control input {
+    border: 2px solid white;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .control input::placeholder {
+    color: darkgray;
+  }
+  
+  .control input:focus {
+    outline: 0;
+    border-color: #fff;
+  }
+
+  span {
+    font-weight: bold;
+    color: white;
+  }
+
+  .register-link {
+    color: yellow;
+    transition: all 1s linear;
+  }
+
+  .register-link:hover {
+    color: #fff;
+  }
+    
+  .button, .button2 {
+    cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
+    background-color: #fff;
+    font-weight: bold;
+    padding: 12px 108px;
+    color: #3F0071;
+    border-radius: 25px;
+    margin-left: 85px;
+    }
+  
+    .button:hover {
+      color: #3F0071;
+      background: yellow;
+      transition: all 1s linear;
+    }
+
+    @media screen and (max-width: 770px)  {
+      .container, .container2 {
+        width: 440px;
+      }
+
+      .button {
+        margin-left: 30px;
+      }
+
+      .button2 {
+        margin-left: 41px;
+      }
+    }
