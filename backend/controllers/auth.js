@@ -27,8 +27,9 @@ exports.register = async (req, res, next) => {
             techsatck,
             tags
         });
-        console.log("register success");
         sendToken(user, 201, res);
+        user.findOne({email : email}).
+        console.log("register success");
     } catch (error) {
         next(error);
     }
@@ -147,8 +148,5 @@ exports.resetpassword = async (req, res, next) => {
 
 const sendToken = (user, statusCode, res) => {
     const token = user.getSignedToken();
-    res.status(statusCode).json({
-        success: true,
-        token
-    });
+    return token;
 }

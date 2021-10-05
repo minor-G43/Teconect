@@ -66,8 +66,6 @@ class Register extends Component {
         }).catch( err =>{
           alert(err);
         })
-
-
       }
 
   }
@@ -147,7 +145,7 @@ class Register extends Component {
 
     if (typeof details["linkedin"] !== "undefined") {
 
-      let pattern = new RegExp(/(https?)?:?(\/\/)?(([w]{3}||\w\w)\.)?linkedin.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/);
+      let pattern = new RegExp(/(https?)?:?(\/\/)?(([w]{3}||\w\w)\.)?linkedin.com(\w+:{0,1}\w*@)?(\S+)(:([0-9])+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/);
       if (!pattern.test(details["linkedin"])) {
         validity = false;
         errors["linkedin"] = "*Please enter a valid Linkedin account";
